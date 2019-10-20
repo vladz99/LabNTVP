@@ -28,5 +28,15 @@ public class Note
         private readonly int creation_time = 1;
         private int last_modified_time;
 
+        enum Notes_category
+        {
+            work,
+            house,
+            health_and_sport,
+            people,
+            documentation,
+            finance,
+            miscellanea
+        }
     }
 }
