@@ -29,8 +29,8 @@ public class Note
 
         private string category_notes;
         private string text_notes;
-        private readonly int creation_time = 1;
-        private int last_modified_time;
+        //private DateTime creation_time = DateTime.Now;
+        //private DateTime last_modified_time;
 
         enum Notes_category
         {
