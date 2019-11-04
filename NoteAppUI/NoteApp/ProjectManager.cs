@@ -13,21 +13,22 @@ namespace NoteApp
         /// <summary>
         /// Хранит путь до файла.
         /// </summary>
-        private static readonly string _pathToFile = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+        private static readonly string _pathToFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
         "\\My Documents\\NoteApp.notes";
 
         /// <summary>
         /// Сохраняет объект проекта в файл.
         /// </summary>
         /// 
-        public static void SaveToFile(Project data, string filename)
+        public static void SaveFile(Project data, string filename)
         {
             File.WriteAllText(_pathToFile, JsonConvert.SerializeObject(data));
         }
+
         /// <summary>
         /// Загружает объект проекта из файла.
         /// </summary>
-        public static Project LoadFromFile(string filename)
+        public static Project LoadFile(string filename)
         {
             Project project;
             string data;
@@ -36,14 +37,14 @@ namespace NoteApp
             {
                 data = File.ReadAllText(_pathToFile);
             }
-            catch (DirectoryNotFoundException e)
+            catch (DirectoryNotFoundException no)
             {
-                throw e;
+                throw no;
             }
 
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException no)
             {
-                throw e;
+                throw no;
             }
 
             project = JsonConvert.DeserializeObject<Project>(data);
