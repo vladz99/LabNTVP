@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace NoteApp
 {
+    /// <summary>
+    /// Класс хранящий информацию о заметках, такие как: Имя, категория, текст, 
+    /// время создания, последнее время редактирования
+    /// </summary>
 public class Note
     {
-        private string _name;
+        private string _name = "Без Названия";
         public string GetName()
         {
             return _name;
         }
         public void SetName(string name)
         {
-            if (name.Length < 50)
+            if (name.Length > 50)
             {
                 throw new ArgumentException("Название должно быть меньше 50 символов, а было " + name);
             }
