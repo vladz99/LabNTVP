@@ -10,37 +10,51 @@ namespace NoteApp
     /// Класс хранящий информацию о заметках, такие как: Имя, категория, текст, 
     /// время создания, последнее время редактирования
     /// </summary>
-public class Note
+
+    public class Note
     {
         private string _name = "Без Названия";
-        public string GetName()
+        private Notes _categoryNotes;
+        private string _textNotes;
+        private DateTime _creationTime = DateTime.Now;
+        private DateTime _lastModifiedTime;
+        public string Name
         {
-            return _name;
-        }
-        public void SetName(string name)
-        {
-            if (name.Length > 50)
+            get { return _name; }
+            set
             {
-                throw new ArgumentException("Название должно быть меньше 50 символов, а было " + name);
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("Название должно быть меньше 50 символов, а было " + value);
+                }
+                    _name = value ;
             }
-            else
-                _name = name;
         }
 
-        private string category_notes;
-        private string text_notes;
-        //private DateTime creation_time = DateTime.Now;
-        //private DateTime last_modified_time;
+        public Notes CategoryNotes { get; set; }
 
-        enum Notes_category
+        public string TextNotes { get; set; }
+
+        public DateTime CreationTime { get; set; }
+
+        public DateTime LastModifiedTime
         {
-            work,
-            house,
-            health_and_sport,
-            people,
-            documentation,
-            finance,
-            miscellanea
+            get
+            { return _lastModifiedTime; }
+            set
+            {
+                if(value > DateTime.Now)
+                {
+                    throw new ArgumentException("Дата последнего изменения больше сегодняшней даты");
+                }
+                if (value < CreationTime)
+                {
+                    throw new ArgumentException("Дата последнего изменения меньше даты создания");
+                }
+                else
+                    _lastModifiedTime = value;
+
+            }
         }
     }
 }

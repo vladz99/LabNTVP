@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 namespace NoteApp
 {
     /// <summary>
-    /// Список List
+    /// Список всех заметок
     /// </summary>
+
     public class Project
     {
-        private List<Note> _listNotes = new List<Note>();
-        public List<Note> ListNote
+        private List<Note> Note = new List<Note>();
+        public List<Note> Notes
         {
             get
             {
-                return _listNotes;
+                return Note;
             }
             set
             {
-                _listNotes = value;
+                Note = value;
             }
         }
     }
