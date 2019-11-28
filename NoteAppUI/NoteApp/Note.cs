@@ -13,11 +13,31 @@ namespace NoteApp
 
     public class Note
     {
+        /// <summary>
+        /// Название заметки
+        /// </summary>
         private string _name = "Без Названия";
-        private Notes _categoryNotes;
+
+        /// <summary>
+        /// Категории заметок
+        /// </summary>
+        private NoteCategory _categoryNotes;
+
+        /// <summary>
+        /// Текст заметок
+        /// </summary>
         private string _textNotes;
+
+        /// <summary>
+        /// Дата создания заметки
+        /// </summary>
         private DateTime _creationTime = DateTime.Now;
+
+        /// <summary>
+        /// Дата последней модификации заметки
+        /// </summary>
         private DateTime _lastModifiedTime;
+
         public string Name
         {
             get { return _name; }
@@ -30,8 +50,8 @@ namespace NoteApp
                     _name = value ;
             }
         }
-
-        public Notes CategoryNotes { get; set; }
+        //Добавить комментарии
+        public NoteCategory CategoryNotes { get; set; }
 
         public string TextNotes { get; set; }
 

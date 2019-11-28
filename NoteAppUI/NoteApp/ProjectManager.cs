@@ -13,41 +13,35 @@ namespace NoteApp
         /// <summary>
         /// Хранит путь до файла.
         /// </summary>
-        private static readonly string _pathToFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-        "\\NoteApp.notes";
+        private static readonly string _pathToFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+        @"\NoteApp.notes";
 
         /// <summary>
         /// Сохраняет проект в файл.
         /// </summary>
         /// 
-        public static void SaveToFile(Project data, string filename)
+        public static void SaveToFile(Project data)
         {
-            File.WriteAllText(_pathToFile, JsonConvert.SerializeObject(data));
+            var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+            using (var sw = new StreamWriter(_pathToFile))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, data);
+            }
         }
 
         /// <summary>
         /// Загружает проект из файла.
         /// </summary>
-        public static Project LoadToFile(string filename)
+        public static Project LoadToFile()
         {
-            Project project;
-            string data;
-
-            try
+            Project project = null;
+            var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+            using (var sr = new StreamReader(_pathToFile))
+            using (JsonReader reader = new JsonTextReader(sr))
             {
-                data = File.ReadAllText(_pathToFile);
+                project = serializer.Deserialize<Project>(reader);
             }
-            catch (DirectoryNotFoundException Exception)
-            {
-                throw Exception;
-            }
-
-            catch (FileNotFoundException Exception)
-            {
-                throw Exception;
-            }
-
-            project = JsonConvert.DeserializeObject<Project>(data);
 
             return project;
         }
