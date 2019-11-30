@@ -29,91 +29,104 @@
         private void InitializeComponent()
         {
             this.NameApp = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.VersionLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.AutorLabel = new System.Windows.Forms.Label();
+            this.GitHubLabel = new System.Windows.Forms.LinkLabel();
+            this.MailLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.AuthorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameApp
             // 
             this.NameApp.AutoSize = true;
             this.NameApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameApp.Location = new System.Drawing.Point(75, 31);
+            this.NameApp.Location = new System.Drawing.Point(12, 9);
             this.NameApp.Name = "NameApp";
             this.NameApp.Size = new System.Drawing.Size(85, 24);
             this.NameApp.TabIndex = 0;
             this.NameApp.Text = "NoteApp";
             // 
-            // label2
+            // VersionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Location = new System.Drawing.Point(12, 50);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(43, 13);
+            this.VersionLabel.TabIndex = 1;
+            this.VersionLabel.Text = "v. 1.0.0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 127);
+            this.label3.Location = new System.Drawing.Point(12, 208);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "github";
+            this.label3.Text = "GitHub";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 161);
+            this.label4.Location = new System.Drawing.Point(12, 249);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "e-mail";
+            this.label4.Text = "E-mail";
             // 
-            // label5
+            // AutorLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 417);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.AutorLabel.AutoSize = true;
+            this.AutorLabel.Location = new System.Drawing.Point(12, 428);
+            this.AutorLabel.Name = "AutorLabel";
+            this.AutorLabel.Size = new System.Drawing.Size(82, 13);
+            this.AutorLabel.TabIndex = 4;
+            this.AutorLabel.Text = "2019 Vlad Zorin";
             // 
-            // linkLabel1
+            // GitHubLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(159, 127);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(40, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "GitHub";
+            this.GitHubLabel.AutoSize = true;
+            this.GitHubLabel.Location = new System.Drawing.Point(57, 208);
+            this.GitHubLabel.Name = "GitHubLabel";
+            this.GitHubLabel.Size = new System.Drawing.Size(96, 13);
+            this.GitHubLabel.TabIndex = 5;
+            this.GitHubLabel.TabStop = true;
+            this.GitHubLabel.Text = "vladz99/LabNTVP";
+            this.GitHubLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GitHubLabel_LinkClicked);
             // 
-            // linkLabel2
+            // MailLinkLabel
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(159, 161);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(88, 13);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Zorin_Kracasveg";
+            this.MailLinkLabel.AutoSize = true;
+            this.MailLinkLabel.Location = new System.Drawing.Point(52, 249);
+            this.MailLinkLabel.Name = "MailLinkLabel";
+            this.MailLinkLabel.Size = new System.Drawing.Size(118, 13);
+            this.MailLinkLabel.TabIndex = 6;
+            this.MailLinkLabel.TabStop = true;
+            this.MailLinkLabel.Text = "Vladik.zorin@yandex.ru";
+            this.MailLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MailLinkLabel_LinkClicked);
+            // 
+            // AuthorLabel
+            // 
+            this.AuthorLabel.AutoSize = true;
+            this.AuthorLabel.Location = new System.Drawing.Point(12, 136);
+            this.AuthorLabel.Name = "AuthorLabel";
+            this.AuthorLabel.Size = new System.Drawing.Size(92, 13);
+            this.AuthorLabel.TabIndex = 7;
+            this.AuthorLabel.Text = "Author: Vlad Zorin";
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.AuthorLabel);
+            this.Controls.Add(this.MailLinkLabel);
+            this.Controls.Add(this.GitHubLabel);
+            this.Controls.Add(this.AutorLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.NameApp);
             this.Name = "AboutForm";
             this.ShowIcon = false;
@@ -127,11 +140,12 @@
         #endregion
 
         private System.Windows.Forms.Label NameApp;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label AutorLabel;
+        private System.Windows.Forms.LinkLabel GitHubLabel;
+        private System.Windows.Forms.LinkLabel MailLinkLabel;
+        private System.Windows.Forms.Label AuthorLabel;
     }
 }

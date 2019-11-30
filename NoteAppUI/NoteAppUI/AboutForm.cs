@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,16 @@ namespace NoteAppUI
         public AboutForm()
         {
             InitializeComponent();
+        }
+
+        private void GitHubLabel_LinkClicked(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/MazurenkoA/ContactsApp");
+        }
+
+        private void MailLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("mailto:vladik.zorin@yandex.ru");
         }
     }
 }
