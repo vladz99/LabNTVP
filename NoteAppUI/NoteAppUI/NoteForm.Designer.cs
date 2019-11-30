@@ -106,6 +106,7 @@
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // OkButton
             // 
@@ -115,9 +116,11 @@
             this.OkButton.TabIndex = 0;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(70, 35);
             this.CategoryComboBox.Name = "CategoryComboBox";
@@ -134,6 +137,7 @@
             // 
             // CreatedDateTimePicker
             // 
+            this.CreatedDateTimePicker.Enabled = false;
             this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 69);
             this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
             this.CreatedDateTimePicker.Size = new System.Drawing.Size(147, 20);
@@ -160,6 +164,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.AddEditPanel);
             this.Name = "NoteForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Note";
             this.AddEditPanel.ResumeLayout(false);
             this.AddEditPanel.PerformLayout();

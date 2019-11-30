@@ -31,7 +31,7 @@ namespace NoteApp
         /// <summary>
         /// Дата создания заметки
         /// </summary>
-        private DateTime _creationTime = DateTime.Now;
+        private DateTime _creationTime = DateTime.Today;
 
         /// <summary>
         /// Дата последней модификации заметки
@@ -63,16 +63,15 @@ namespace NoteApp
             { return _lastModifiedTime; }
             set
             {
-                if(value > DateTime.Now)
-                {
-                    throw new ArgumentException("Дата последнего изменения больше сегодняшней даты");
-                }
-                if (value < CreationTime)
-                {
-                    throw new ArgumentException("Дата последнего изменения меньше даты создания");
-                }
-                else
-                    _lastModifiedTime = value;
+                //if(value > DateTime.Now)
+                //{
+                //    throw new ArgumentException("Дата последнего изменения больше сегодняшней даты");
+                //}
+                //if (value < CreationTime)
+                //{
+                //    throw new ArgumentException("Дата последнего изменения меньше даты создания");
+                //}                
+                _lastModifiedTime = value;
 
             }
         }
