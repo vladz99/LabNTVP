@@ -38,6 +38,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RightPanel = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.ModifiedDate = new System.Windows.Forms.DateTimePicker();
             this.DateCreated = new System.Windows.Forms.DateTimePicker();
             this.ModifiedDateLabel = new System.Windows.Forms.Label();
             this.DateCreatedLabel = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.NoteListBox = new System.Windows.Forms.ListBox();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.ShowCategoryLabel = new System.Windows.Forms.Label();
-            this.ModifiedDate = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.TableLayoutPanel.SuspendLayout();
             this.RightPanel.SuspendLayout();
@@ -149,6 +149,22 @@
             this.RightPanel.Name = "RightPanel";
             this.RightPanel.Size = new System.Drawing.Size(433, 391);
             this.RightPanel.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(17, 93);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(390, 287);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // ModifiedDate
+            // 
+            this.ModifiedDate.Enabled = false;
+            this.ModifiedDate.Location = new System.Drawing.Point(271, 67);
+            this.ModifiedDate.Name = "ModifiedDate";
+            this.ModifiedDate.Size = new System.Drawing.Size(120, 20);
+            this.ModifiedDate.TabIndex = 6;
             // 
             // DateCreated
             // 
@@ -273,22 +289,6 @@
             this.ShowCategoryLabel.Size = new System.Drawing.Size(79, 13);
             this.ShowCategoryLabel.TabIndex = 1;
             this.ShowCategoryLabel.Text = "Show Category";
-            // 
-            // ModifiedDate
-            // 
-            this.ModifiedDate.Enabled = false;
-            this.ModifiedDate.Location = new System.Drawing.Point(271, 67);
-            this.ModifiedDate.Name = "ModifiedDate";
-            this.ModifiedDate.Size = new System.Drawing.Size(120, 20);
-            this.ModifiedDate.TabIndex = 6;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(17, 93);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(390, 287);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
             // 
             // MainForm
             // 
