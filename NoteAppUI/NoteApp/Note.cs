@@ -78,14 +78,14 @@ namespace NoteApp
             { return _lastModifiedTime; }
             set
             {
-                //if(value > DateTime.Now)
+                //if (value > DateTime.Now)
                 //{
                 //    throw new ArgumentException("Дата последнего изменения больше сегодняшней даты");
                 //}
                 //if (value < CreationTime)
                 //{
                 //    throw new ArgumentException("Дата последнего изменения меньше даты создания");
-                //}                
+                //}
                 _lastModifiedTime = value;
             }
         }

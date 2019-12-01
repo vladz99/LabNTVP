@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.AddEditPanel = new System.Windows.Forms.Panel();
+            this.TitleTextBox = new System.Windows.Forms.TextBox();
+            this.ModifiedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CreatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.RichTextBox = new System.Windows.Forms.RichTextBox();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.ModifiedLabel = new System.Windows.Forms.Label();
             this.CreatedLabel = new System.Windows.Forms.Label();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.TitleLable = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
-            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.RichTextBox = new System.Windows.Forms.RichTextBox();
-            this.CreatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.ModifiedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.TitleTextBox = new System.Windows.Forms.TextBox();
             this.AddEditPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,46 @@
             this.AddEditPanel.Name = "AddEditPanel";
             this.AddEditPanel.Size = new System.Drawing.Size(800, 450);
             this.AddEditPanel.TabIndex = 0;
+            // 
+            // TitleTextBox
+            // 
+            this.TitleTextBox.Location = new System.Drawing.Point(70, 6);
+            this.TitleTextBox.Name = "TitleTextBox";
+            this.TitleTextBox.Size = new System.Drawing.Size(310, 20);
+            this.TitleTextBox.TabIndex = 10;
+            // 
+            // ModifiedDateTimePicker
+            // 
+            this.ModifiedDateTimePicker.Enabled = false;
+            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(322, 69);
+            this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
+            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(158, 20);
+            this.ModifiedDateTimePicker.TabIndex = 9;
+            // 
+            // CreatedDateTimePicker
+            // 
+            this.CreatedDateTimePicker.Enabled = false;
+            this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 69);
+            this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
+            this.CreatedDateTimePicker.Size = new System.Drawing.Size(147, 20);
+            this.CreatedDateTimePicker.TabIndex = 8;
+            // 
+            // RichTextBox
+            // 
+            this.RichTextBox.Location = new System.Drawing.Point(15, 95);
+            this.RichTextBox.Name = "RichTextBox";
+            this.RichTextBox.Size = new System.Drawing.Size(773, 314);
+            this.RichTextBox.TabIndex = 7;
+            this.RichTextBox.Text = "";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(70, 35);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(133, 21);
+            this.CategoryComboBox.TabIndex = 6;
             // 
             // ModifiedLabel
             // 
@@ -117,45 +157,6 @@
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
-            // 
-            // CategoryComboBox
-            // 
-            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(70, 35);
-            this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(133, 21);
-            this.CategoryComboBox.TabIndex = 6;
-            // 
-            // RichTextBox
-            // 
-            this.RichTextBox.Location = new System.Drawing.Point(15, 95);
-            this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(773, 314);
-            this.RichTextBox.TabIndex = 7;
-            this.RichTextBox.Text = "";
-            // 
-            // CreatedDateTimePicker
-            // 
-            this.CreatedDateTimePicker.Enabled = false;
-            this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 69);
-            this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
-            this.CreatedDateTimePicker.Size = new System.Drawing.Size(147, 20);
-            this.CreatedDateTimePicker.TabIndex = 8;
-            // 
-            // ModifiedDateTimePicker
-            // 
-            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(322, 69);
-            this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
-            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(158, 20);
-            this.ModifiedDateTimePicker.TabIndex = 9;
-            // 
-            // TitleTextBox
-            // 
-            this.TitleTextBox.Location = new System.Drawing.Point(70, 6);
-            this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(310, 20);
-            this.TitleTextBox.TabIndex = 10;
             // 
             // NoteForm
             // 

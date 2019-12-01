@@ -21,14 +21,18 @@ namespace NoteAppUI
         /// Создание проекта, получение списка всех заметок.
         /// </summary>
         private Project _project;
+        /// <summary>
+        /// Список отсортированных заметок
+        /// </summary>
         private List<Note> _currentCategory;
         
         /// <summary>
-        /// Отображаем список категорий на панеле.
+        /// Конструктор.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
+
             var listCategory = Enum.GetValues(typeof (NoteCategory));            
             CategoryComboBox.DataSource = listCategory;            
         }
@@ -45,7 +49,7 @@ namespace NoteAppUI
         }
 
         /// <summary>
-        /// Обновление списка всез заметок
+        /// Обновление списка всех заметок
         /// </summary>
         /// <param name="notes"></param>
         private void UpdateListNote(List<Note> notes)
@@ -59,7 +63,7 @@ namespace NoteAppUI
         }
         
         /// <summary>
-        /// 
+        /// Сортировка заметок по категориям
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -143,7 +147,7 @@ namespace NoteAppUI
         }
 
         /// <summary>
-        /// 
+        /// Событие, срабатывающее перед закрытием формы
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -153,7 +157,7 @@ namespace NoteAppUI
         }
 
         /// <summary>
-        /// Список всех заметок
+        /// Отобржание выбранной заметки.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

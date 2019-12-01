@@ -17,9 +17,13 @@ namespace NoteAppUI
     public partial class NoteForm : Form
     {
         /// <summary>
-        /// Переносим данные из формы MainForm в форму NoteForm
+        /// Заметка
         /// </summary>
         private Note _currentNote;
+
+        /// <summary>
+        /// Задать и получить обработанную заметку
+        /// </summary>
         public Note CurrentNote {
             get
             {
@@ -28,9 +32,9 @@ namespace NoteAppUI
                     _currentNote = new Note();                
                 }                
                 _currentNote.Name = TitleTextBox.Text;
-                _currentNote.CategoryNotes = (NoteCategory)CategoryComboBox.SelectedItem;
-                _currentNote.LastModifiedTime = ModifiedDateTimePicker.Value;
+                _currentNote.CategoryNotes = (NoteCategory)CategoryComboBox.SelectedItem;                
                 _currentNote.CreationTime = CreatedDateTimePicker.Value;
+                _currentNote.LastModifiedTime = DateTime.Now;
                 _currentNote.TextNotes = RichTextBox.Text;
                 return _currentNote;
             }
@@ -50,7 +54,7 @@ namespace NoteAppUI
         }
 
         /// <summary>
-        /// Список категорий заметок
+        /// Конструктор
         /// </summary>
         public NoteForm()
         {
@@ -65,7 +69,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;           
             this.Close();
         }
 

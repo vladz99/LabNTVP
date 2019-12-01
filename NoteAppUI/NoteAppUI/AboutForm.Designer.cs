@@ -78,7 +78,7 @@
             // AutorLabel
             // 
             this.AutorLabel.AutoSize = true;
-            this.AutorLabel.Location = new System.Drawing.Point(12, 428);
+            this.AutorLabel.Location = new System.Drawing.Point(2, 322);
             this.AutorLabel.Name = "AutorLabel";
             this.AutorLabel.Size = new System.Drawing.Size(82, 13);
             this.AutorLabel.TabIndex = 4;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(440, 340);
             this.Controls.Add(this.AuthorLabel);
             this.Controls.Add(this.MailLinkLabel);
             this.Controls.Add(this.GitHubLabel);
