@@ -38,6 +38,9 @@ namespace NoteApp
         /// </summary>
         private DateTime _lastModifiedTime;
 
+        /// <summary>
+        /// Возвращает и задает название заметки 
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -50,13 +53,25 @@ namespace NoteApp
                     _name = value ;
             }
         }
-        //Добавить комментарии
+
+        /// <summary>
+        /// Возвращает и задает категорию заметки 
+        /// </summary>
         public NoteCategory CategoryNotes { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает текст заметки 
+        /// </summary>
         public string TextNotes { get; set; }
 
+        /// <summary>
+        /// Возвращает время создания заметки 
+        /// </summary>
         public DateTime CreationTime { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает время последнего изменения 
+        /// </summary>
         public DateTime LastModifiedTime
         {
             get
@@ -72,7 +87,6 @@ namespace NoteApp
                 //    throw new ArgumentException("Дата последнего изменения меньше даты создания");
                 //}                
                 _lastModifiedTime = value;
-
             }
         }
     }

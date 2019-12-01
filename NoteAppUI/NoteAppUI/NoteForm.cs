@@ -11,8 +11,14 @@ using NoteApp;
 
 namespace NoteAppUI
 {
+    /// <summary>
+    /// Окно редактирования
+    /// </summary>
     public partial class NoteForm : Form
     {
+        /// <summary>
+        /// Переносим данные из формы MainForm в форму NoteForm
+        /// </summary>
         private Note _currentNote;
         public Note CurrentNote {
             get
@@ -25,7 +31,6 @@ namespace NoteAppUI
                 _currentNote.CategoryNotes = (NoteCategory)CategoryComboBox.SelectedItem;
                 _currentNote.LastModifiedTime = ModifiedDateTimePicker.Value;
                 _currentNote.CreationTime = CreatedDateTimePicker.Value;
-                
                 _currentNote.TextNotes = RichTextBox.Text;
                 return _currentNote;
             }
@@ -43,18 +48,32 @@ namespace NoteAppUI
                 _currentNote = value;
             }
         }
+
+        /// <summary>
+        /// Список категорий заметок
+        /// </summary>
         public NoteForm()
         {
             InitializeComponent();
             CategoryComboBox.DataSource = Enum.GetValues(typeof(NoteCategory));
         }
 
+        /// <summary>
+        /// Реализация кнопки ОК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OkButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             this.Close();
         }
 
+        /// <summary>
+        /// Реализация кнопки Cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
