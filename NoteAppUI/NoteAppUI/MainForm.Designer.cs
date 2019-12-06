@@ -49,9 +49,9 @@
             this.CategoryNoteLabel = new System.Windows.Forms.Label();
             this.CurrentNoteLabel = new System.Windows.Forms.Label();
             this.LeftPanel = new System.Windows.Forms.Panel();
-            this.RemoveButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
+            this.RemovePictureBox = new System.Windows.Forms.PictureBox();
+            this.EditPictureBox = new System.Windows.Forms.PictureBox();
+            this.AddPictureBox = new System.Windows.Forms.PictureBox();
             this.NoteListBox = new System.Windows.Forms.ListBox();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.ShowCategoryLabel = new System.Windows.Forms.Label();
@@ -59,6 +59,9 @@
             this.TableLayoutPanel.SuspendLayout();
             this.RightPanel.SuspendLayout();
             this.LeftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RemovePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -168,24 +171,24 @@
             // RichTextBox
             // 
             this.RichTextBox.Enabled = false;
-            this.RichTextBox.Location = new System.Drawing.Point(17, 93);
+            this.RichTextBox.Location = new System.Drawing.Point(3, 102);
             this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(390, 287);
+            this.RichTextBox.Size = new System.Drawing.Size(427, 289);
             this.RichTextBox.TabIndex = 8;
             this.RichTextBox.Text = "";
             // 
             // ModifiedDate
             // 
             this.ModifiedDate.Enabled = false;
-            this.ModifiedDate.Location = new System.Drawing.Point(271, 67);
+            this.ModifiedDate.Location = new System.Drawing.Point(276, 76);
             this.ModifiedDate.Name = "ModifiedDate";
-            this.ModifiedDate.Size = new System.Drawing.Size(120, 20);
+            this.ModifiedDate.Size = new System.Drawing.Size(126, 20);
             this.ModifiedDate.TabIndex = 6;
             // 
             // DateCreated
             // 
             this.DateCreated.Enabled = false;
-            this.DateCreated.Location = new System.Drawing.Point(92, 67);
+            this.DateCreated.Location = new System.Drawing.Point(78, 76);
             this.DateCreated.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateCreated.Name = "DateCreated";
             this.DateCreated.Size = new System.Drawing.Size(120, 20);
@@ -194,16 +197,16 @@
             // ModifiedDateLabel
             // 
             this.ModifiedDateLabel.AutoSize = true;
-            this.ModifiedDateLabel.Location = new System.Drawing.Point(218, 73);
+            this.ModifiedDateLabel.Location = new System.Drawing.Point(220, 79);
             this.ModifiedDateLabel.Name = "ModifiedDateLabel";
-            this.ModifiedDateLabel.Size = new System.Drawing.Size(47, 13);
+            this.ModifiedDateLabel.Size = new System.Drawing.Size(50, 13);
             this.ModifiedDateLabel.TabIndex = 4;
-            this.ModifiedDateLabel.Text = "Modified";
+            this.ModifiedDateLabel.Text = "Modified:";
             // 
             // DateCreatedLabel
             // 
             this.DateCreatedLabel.AutoSize = true;
-            this.DateCreatedLabel.Location = new System.Drawing.Point(27, 73);
+            this.DateCreatedLabel.Location = new System.Drawing.Point(25, 79);
             this.DateCreatedLabel.Name = "DateCreatedLabel";
             this.DateCreatedLabel.Size = new System.Drawing.Size(47, 13);
             this.DateCreatedLabel.TabIndex = 3;
@@ -223,9 +226,9 @@
             this.CategoryNoteLabel.AutoSize = true;
             this.CategoryNoteLabel.Location = new System.Drawing.Point(25, 43);
             this.CategoryNoteLabel.Name = "CategoryNoteLabel";
-            this.CategoryNoteLabel.Size = new System.Drawing.Size(49, 13);
+            this.CategoryNoteLabel.Size = new System.Drawing.Size(52, 13);
             this.CategoryNoteLabel.TabIndex = 1;
-            this.CategoryNoteLabel.Text = "Category";
+            this.CategoryNoteLabel.Text = "Category:";
             // 
             // CurrentNoteLabel
             // 
@@ -239,9 +242,9 @@
             // 
             // LeftPanel
             // 
-            this.LeftPanel.Controls.Add(this.RemoveButton);
-            this.LeftPanel.Controls.Add(this.EditButton);
-            this.LeftPanel.Controls.Add(this.AddButton);
+            this.LeftPanel.Controls.Add(this.RemovePictureBox);
+            this.LeftPanel.Controls.Add(this.EditPictureBox);
+            this.LeftPanel.Controls.Add(this.AddPictureBox);
             this.LeftPanel.Controls.Add(this.NoteListBox);
             this.LeftPanel.Controls.Add(this.CategoryComboBox);
             this.LeftPanel.Controls.Add(this.ShowCategoryLabel);
@@ -251,42 +254,45 @@
             this.LeftPanel.Size = new System.Drawing.Size(286, 391);
             this.LeftPanel.TabIndex = 2;
             // 
-            // RemoveButton
+            // RemovePictureBox
             // 
-            this.RemoveButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveButton.Image")));
-            this.RemoveButton.Location = new System.Drawing.Point(128, 353);
-            this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(35, 27);
-            this.RemoveButton.TabIndex = 6;
-            this.RemoveButton.UseVisualStyleBackColor = true;
-            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            this.RemovePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("RemovePictureBox.Image")));
+            this.RemovePictureBox.Location = new System.Drawing.Point(91, 355);
+            this.RemovePictureBox.Name = "RemovePictureBox";
+            this.RemovePictureBox.Size = new System.Drawing.Size(34, 27);
+            this.RemovePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.RemovePictureBox.TabIndex = 9;
+            this.RemovePictureBox.TabStop = false;
+            this.RemovePictureBox.Click += new System.EventHandler(this.RemovePictureBox_Click);
             // 
-            // EditButton
+            // EditPictureBox
             // 
-            this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
-            this.EditButton.Location = new System.Drawing.Point(74, 353);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(38, 27);
-            this.EditButton.TabIndex = 5;
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.EditPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("EditPictureBox.Image")));
+            this.EditPictureBox.Location = new System.Drawing.Point(46, 355);
+            this.EditPictureBox.Name = "EditPictureBox";
+            this.EditPictureBox.Size = new System.Drawing.Size(39, 27);
+            this.EditPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.EditPictureBox.TabIndex = 8;
+            this.EditPictureBox.TabStop = false;
+            this.EditPictureBox.Click += new System.EventHandler(this.EditPictureBox_Click);
             // 
-            // AddButton
+            // AddPictureBox
             // 
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
-            this.AddButton.Location = new System.Drawing.Point(22, 353);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(36, 27);
-            this.AddButton.TabIndex = 4;
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AddPictureBox.Image")));
+            this.AddPictureBox.Location = new System.Drawing.Point(9, 355);
+            this.AddPictureBox.Name = "AddPictureBox";
+            this.AddPictureBox.Size = new System.Drawing.Size(31, 27);
+            this.AddPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AddPictureBox.TabIndex = 7;
+            this.AddPictureBox.TabStop = false;
+            this.AddPictureBox.Click += new System.EventHandler(this.AddPictureBox_Click);
             // 
             // NoteListBox
             // 
             this.NoteListBox.FormattingEnabled = true;
-            this.NoteListBox.Location = new System.Drawing.Point(9, 40);
+            this.NoteListBox.Location = new System.Drawing.Point(6, 40);
             this.NoteListBox.Name = "NoteListBox";
-            this.NoteListBox.Size = new System.Drawing.Size(266, 277);
+            this.NoteListBox.Size = new System.Drawing.Size(277, 303);
             this.NoteListBox.TabIndex = 3;
             this.NoteListBox.SelectedIndexChanged += new System.EventHandler(this.NoteListBox_SelectedIndexChanged);
             // 
@@ -294,20 +300,20 @@
             // 
             this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(142, 13);
+            this.CategoryComboBox.Location = new System.Drawing.Point(100, 10);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryComboBox.Size = new System.Drawing.Size(186, 21);
             this.CategoryComboBox.TabIndex = 2;
             this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // ShowCategoryLabel
             // 
             this.ShowCategoryLabel.AutoSize = true;
-            this.ShowCategoryLabel.Location = new System.Drawing.Point(9, 13);
+            this.ShowCategoryLabel.Location = new System.Drawing.Point(3, 13);
             this.ShowCategoryLabel.Name = "ShowCategoryLabel";
-            this.ShowCategoryLabel.Size = new System.Drawing.Size(79, 13);
+            this.ShowCategoryLabel.Size = new System.Drawing.Size(82, 13);
             this.ShowCategoryLabel.TabIndex = 1;
-            this.ShowCategoryLabel.Text = "Show Category";
+            this.ShowCategoryLabel.Text = "Show Category:";
             // 
             // MainForm
             // 
@@ -331,6 +337,9 @@
             this.RightPanel.PerformLayout();
             this.LeftPanel.ResumeLayout(false);
             this.LeftPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RemovePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,14 +365,14 @@
         private System.Windows.Forms.Label DateCreatedLabel;
         private System.Windows.Forms.Label CategoryNoteLabel;
         private System.Windows.Forms.Label CurrentNoteLabel;
-        private System.Windows.Forms.Button RemoveButton;
-        private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ListBox NoteListBox;
         private System.Windows.Forms.DateTimePicker ModifiedDate;
         private System.Windows.Forms.RichTextBox RichTextBox;
         private System.Windows.Forms.Label SelectedCategoryLabel;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.PictureBox AddPictureBox;
+        private System.Windows.Forms.PictureBox EditPictureBox;
+        private System.Windows.Forms.PictureBox RemovePictureBox;
     }
 }
 

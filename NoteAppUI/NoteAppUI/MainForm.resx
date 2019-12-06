@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="RemoveButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="RemovePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
         MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADsIAAA7CARUoSoAAAFQ1aVRYdFhNTDpjb20uYWRvYmUu
@@ -488,20 +488,20 @@
         //JuYAOPMTAaGA2MBkYD473UBxRp+w+qDyiMAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="EditButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="EditPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAADDSURBVDhP1ZDBDcIgFIaZyCGYwMSrUzgEZwdgBVdwBS/M
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAADDSURBVDhP1ZDBDcIgFIaZyCGYwMSrUzgEZwdgBVdwBS/M
         YA+aUGPh+uzf9q+QaoWjL/kCpbyPP0+hRETFGD3AvqrYvD+eBVCyRlZsVjtLwS8umaQ/SF8f1s3hJM45
         0VovsNbmEmwgYTOSAEiuNy+tf8xQYoyB5D0vStBEwSdJmoSS0dAXJWkKSkIICwFA6ql9rP5gi8NUwtlQ
         kqZZCKYUwwDxMpu5Fgvws3t20tzbOU21AJcgwTepFqzxB4ISvgrKifICzomJE4ikXAkAAAAASUVORK5C
         YII=
 </value>
   </data>
-  <data name="AddButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AddPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAABgSURBVDhP3ZExCsAwDAP9qAx9Yx/s1a1NAokrgQsdSgQ3
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAABgSURBVDhP3ZExCsAwDAP9qAx9Yx/s1a1NAokrgQsdSgQ3
         SVwgFhQzE1W1RG8LGYLjbMHuAh8jkADtYshIAsjy0lu+EzDmIcMFjCxAm/hERk2A4ue5y4egnP8IEr2d
         I3IBh/DsWJ/eoAoAAAAASUVORK5CYII=
 </value>

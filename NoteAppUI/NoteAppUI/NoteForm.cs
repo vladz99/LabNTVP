@@ -17,6 +17,11 @@ namespace NoteAppUI
     public partial class NoteForm : Form
     {
         /// <summary>
+        /// Название заметки по умолчанию.
+        /// </summary>
+        private string _defaultName = "Без названия";
+
+        /// <summary>
         /// Заметка
         /// </summary>
         private Note _currentNote;
@@ -30,10 +35,9 @@ namespace NoteAppUI
                 if (_currentNote == null)
                 {
                     _currentNote = new Note();                
-                }                
+                }                                                
                 _currentNote.Name = TitleTextBox.Text;
-                _currentNote.CategoryNotes = (NoteCategory)CategoryComboBox.SelectedItem;                
-                _currentNote.CreationTime = CreatedDateTimePicker.Value;
+                _currentNote.CategoryNotes = (NoteCategory)CategoryComboBox.SelectedItem;
                 _currentNote.LastModifiedTime = DateTime.Now;
                 _currentNote.TextNotes = RichTextBox.Text;
                 return _currentNote;
@@ -60,6 +64,8 @@ namespace NoteAppUI
         {
             InitializeComponent();
             CategoryComboBox.DataSource = Enum.GetValues(typeof(NoteCategory));
+            CategoryComboBox.SelectedIndex = 1;
+            TitleTextBox.Text = _defaultName;
         }
 
         /// <summary>
@@ -69,6 +75,11 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void OkButton_Click(object sender, EventArgs e)
         {
+            if (CategoryComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Нельзя выбрать категорию : " + CategoryComboBox.SelectedItem.ToString() + " для создания заметки", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult = DialogResult.OK;           
             this.Close();
         }
@@ -80,7 +91,31 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        /// <summary>
+        /// Событие, срабатывающие при покидании элемента Title Text Box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TitleTextBox_Leave(object sender, EventArgs e)
+        {
+            if (TitleTextBox.Text == "")
+            {
+                TitleTextBox.Text = _defaultName;
+            }
+        }
+
+        /// <summary>
+        /// Событие, срабатывающие при нажатии на Title Text Box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TitleTextBox_Enter(object sender, EventArgs e)
+        {
+            TitleTextBox.Text = "";
         }
     }
 }

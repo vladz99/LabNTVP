@@ -50,25 +50,54 @@ namespace NoteApp
                 {
                     throw new ArgumentException("Название должно быть меньше 50 символов, а было " + value);
                 }
-                    _name = value ;
+                    _name = value;
+                _lastModifiedTime = DateTime.Now;
             }
         }
 
         /// <summary>
         /// Возвращает и задает категорию заметки 
         /// </summary>
-        public NoteCategory CategoryNotes { get; set; }
+        public NoteCategory CategoryNotes
+        {
+            get
+            {
+                return _categoryNotes;
+            }
+            set
+            {
+                _categoryNotes = value;
+                _lastModifiedTime = DateTime.Now;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задает текст заметки 
         /// </summary>
-        public string TextNotes { get; set; }
+        public string TextNotes
+        {
+            get
+            {
+                return _textNotes;
+            }
+            set
+            {
+                _textNotes = value;
+                _lastModifiedTime = DateTime.Now;
+            }
+        }   
 
         /// <summary>
         /// Возвращает время создания заметки 
         /// </summary>
-        public DateTime CreationTime { get; set; }
+        public DateTime CreationTime
+        {
+            get
+            {
+                return _creationTime;
+            }
 
+        }
         /// <summary>
         /// Возвращает и задает время последнего изменения 
         /// </summary>
@@ -78,15 +107,8 @@ namespace NoteApp
             { return _lastModifiedTime; }
             set
             {
-                //if (value > DateTime.Now)
-                //{
-                //    throw new ArgumentException("Дата последнего изменения больше сегодняшней даты");
-                //}
-                //if (value < CreationTime)
-                //{
-                //    throw new ArgumentException("Дата последнего изменения меньше даты создания");
-                //}
                 _lastModifiedTime = value;
+                _lastModifiedTime = DateTime.Now;
             }
         }
     }

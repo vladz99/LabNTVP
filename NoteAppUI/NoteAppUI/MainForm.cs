@@ -21,6 +21,7 @@ namespace NoteAppUI
         /// Создание проекта, получение списка всех заметок.
         /// </summary>
         private Project _project;
+
         /// <summary>
         /// Список отсортированных заметок
         /// </summary>
@@ -32,9 +33,11 @@ namespace NoteAppUI
         public MainForm()
         {
             InitializeComponent();
-
+            _project = new Project();
             var listCategory = Enum.GetValues(typeof (NoteCategory));            
-            CategoryComboBox.DataSource = listCategory;            
+            CategoryComboBox.DataSource = listCategory;
+            NoteListBox.Items.Clear();
+            CategoryComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace NoteAppUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
-        {
+        {            
             _project = ProjectManager.LoadToFile();            
             UpdateListNote(_project.Notes);            
         }
@@ -68,17 +71,20 @@ namespace NoteAppUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_project == null)
+        {            
+            var selectedNoteCategory = new List<Note>();
+            if (CategoryComboBox.SelectedIndex == 0)
             {
-                return;
+                selectedNoteCategory = _project.Notes;
             }
-            List<Note> selectedNoteCategory = new List<Note>();
-            foreach(var note in _project.Notes)
+            else
             {
-                if (note.CategoryNotes == (NoteCategory)CategoryComboBox.SelectedItem)
+                foreach (var note in _project.Notes)
                 {
-                    selectedNoteCategory.Add(note);
+                    if (note.CategoryNotes == (NoteCategory)CategoryComboBox.SelectedItem)
+                    {
+                        selectedNoteCategory.Add(note);
+                    }
                 }
             }
             UpdateListNote(selectedNoteCategory);
@@ -89,7 +95,7 @@ namespace NoteAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddButton_Click(object sender, EventArgs e)
+        private void AddPictureBox_Click(object sender, EventArgs e)
         {
             NoteForm noteForm = new NoteForm();
             DialogResult result = noteForm.ShowDialog();
@@ -106,7 +112,7 @@ namespace NoteAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void EditButton_Click(object sender, EventArgs e)
+        private void EditPictureBox_Click(object sender, EventArgs e)
         {
             var index = NoteListBox.SelectedIndex;
             if (index >= 0)
@@ -130,7 +136,7 @@ namespace NoteAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RemoveButton_Click(object sender, EventArgs e)
+        private void RemovePictureBox_Click(object sender, EventArgs e)
         {
             var index = NoteListBox.SelectedIndex;
             if (index >= 0)

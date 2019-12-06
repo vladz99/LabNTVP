@@ -65,14 +65,17 @@
             // TitleTextBox
             // 
             this.TitleTextBox.Location = new System.Drawing.Point(70, 6);
+            this.TitleTextBox.MaxLength = 50;
             this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(310, 20);
+            this.TitleTextBox.Size = new System.Drawing.Size(718, 20);
             this.TitleTextBox.TabIndex = 10;
+            this.TitleTextBox.Enter += new System.EventHandler(this.TitleTextBox_Enter);
+            this.TitleTextBox.Leave += new System.EventHandler(this.TitleTextBox_Leave);
             // 
             // ModifiedDateTimePicker
             // 
             this.ModifiedDateTimePicker.Enabled = false;
-            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(322, 69);
+            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(305, 69);
             this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
             this.ModifiedDateTimePicker.Size = new System.Drawing.Size(158, 20);
             this.ModifiedDateTimePicker.TabIndex = 9;
@@ -99,13 +102,13 @@
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(70, 35);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(133, 21);
+            this.CategoryComboBox.Size = new System.Drawing.Size(147, 21);
             this.CategoryComboBox.TabIndex = 6;
             // 
             // ModifiedLabel
             // 
             this.ModifiedLabel.AutoSize = true;
-            this.ModifiedLabel.Location = new System.Drawing.Point(266, 75);
+            this.ModifiedLabel.Location = new System.Drawing.Point(249, 72);
             this.ModifiedLabel.Name = "ModifiedLabel";
             this.ModifiedLabel.Size = new System.Drawing.Size(50, 13);
             this.ModifiedLabel.TabIndex = 5;
@@ -114,7 +117,7 @@
             // CreatedLabel
             // 
             this.CreatedLabel.AutoSize = true;
-            this.CreatedLabel.Location = new System.Drawing.Point(12, 75);
+            this.CreatedLabel.Location = new System.Drawing.Point(12, 72);
             this.CreatedLabel.Name = "CreatedLabel";
             this.CreatedLabel.Size = new System.Drawing.Size(47, 13);
             this.CreatedLabel.TabIndex = 4;

@@ -20,6 +20,7 @@ namespace NoteApp
         /// Сохраняет проект в файл.
         /// </summary>
         /// 
+        
         public static void SaveToFile(Project data)
         {
             var serializer = new JsonSerializer { Formatting = Formatting.Indented };
@@ -35,7 +36,7 @@ namespace NoteApp
         /// </summary>
         public static Project LoadToFile()
         {
-            Project project = null;
+            Project project = new Project();
             var serializer = new JsonSerializer { Formatting = Formatting.Indented };
             using (var sr = new StreamReader(_pathToFile))
             using (JsonReader reader = new JsonTextReader(sr))
