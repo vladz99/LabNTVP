@@ -9,8 +9,7 @@ namespace NoteApp
     /// <summary>
     /// Перечисление категорий заметок
     /// </summary>
-
-    //Сделать all - сортировка по умолчанию
+    
     public enum NoteCategory
     {
         All,

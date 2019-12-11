@@ -180,7 +180,7 @@
         #endregion
 
         private System.Windows.Forms.Panel AddEditPanel;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Label TitleLable;
         private System.Windows.Forms.Label ModifiedLabel;
