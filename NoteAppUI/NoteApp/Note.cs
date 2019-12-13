@@ -31,12 +31,18 @@ namespace NoteApp
         /// <summary>
         /// Дата создания заметки
         /// </summary>
-        private DateTime _creationTime = DateTime.Today;
+        private DateTime _creationTime;
 
         /// <summary>
         /// Дата последней модификации заметки
         /// </summary>
         private DateTime _lastModifiedTime;
+
+        public Note()
+        {
+            _creationTime = DateTime.Now;
+            _lastModifiedTime = DateTime.Now;
+        }
 
         /// <summary>
         /// Возвращает и задает название заметки 
@@ -50,8 +56,15 @@ namespace NoteApp
                 {
                     throw new ArgumentException("Название должно быть меньше 50 символов, а было " + value);
                 }
+                else if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Название заметки не может быть null!");
+                }
+                else
+                {
                     _name = value;
-                _lastModifiedTime = DateTime.Now;
+                    _lastModifiedTime = DateTime.Now;
+                }
             }
         }
 
@@ -96,6 +109,10 @@ namespace NoteApp
             {
                 return _creationTime;
             }
+            set
+            {
+                _creationTime = DateTime.Now;
+            }
 
         }
         /// <summary>
@@ -104,7 +121,9 @@ namespace NoteApp
         public DateTime LastModifiedTime
         {
             get
-            { return _lastModifiedTime; }
+            {
+                return _lastModifiedTime;
+            }
             set
             {
                 _lastModifiedTime = value;
