@@ -88,5 +88,39 @@ namespace NoteApp.UnitTests
 
             Assert.AreEqual(expected, actual, "Геттер LastModifiedTime возвращает неправильную дату редактирования");
         }
+
+        [Test(Description = "Негативный тест сеттера CreationTime: дата создания позже текущей даты")]
+        public void TestCreationTimeSet_LongerCurrentDate()
+        {
+            var time = DateTime.Now;
+            time = time.AddDays(1);
+            var note = new Note();
+            Assert.Throws<ArgumentException>(
+            () => { note.CreationTime = time; },
+            "Должно быть исключение, если дата создания позже текущей");
+        }
+
+        [Test(Description = "Негативный тест сеттера LastModifiedTime: дата последнего изменения позже текущей даты")]
+        public void TestLastModifiedTimeSet_LongerCurrentDate()
+        {
+            var time = DateTime.Now;
+            time = time.AddDays(1);
+            var note = new Note();
+            Assert.Throws<ArgumentException>(
+            () => { note.LastModifiedTime = time; },
+            "Должно быть исключение, если дата последнего изменения позже текущей даты");
+        }
+
+        [Test(Description = "Негативный тест сеттера LastModifiedTime: дата последнего изменения ранее даты создания")]
+        public void TestLastModifiedTimeSet_LessCreatedDate()
+        {
+            var time = DateTime.Now;
+            time = time.AddDays(-1);
+            var note = new Note();
+            Assert.Throws<ArgumentException>(
+            () => { note.LastModifiedTime = time; },
+            "Должно быть исключение, если дата последнего изменения раньше даты создания");
+        }
+
     }
 }

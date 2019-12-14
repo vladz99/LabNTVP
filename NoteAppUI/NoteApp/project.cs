@@ -13,12 +13,12 @@ namespace NoteApp
     public class Project
     {
         /// <summary>
-        /// Создаем новый лист заметок
+        /// Список заметок
         /// </summary>
-        private List<Note> _notes = new List<Note>();
+        private List<Note> _notes;
 
         /// <summary>
-        /// Свойство для работы с полем _notes
+        /// Возвращает и задает список всех заметок
         /// </summary>
         public List<Note> Notes
         {
@@ -27,6 +27,10 @@ namespace NoteApp
             {
                 _notes = value;
             }
-        }        
+        }
+        public Project()
+        {
+            Notes = new List<Note>();
+        }
     }
 }
