@@ -26,7 +26,10 @@ namespace NoteAppUI
         /// Список отсортированных заметок
         /// </summary>
         private List<Note> _currentCategory;
-        
+
+        private static readonly string _pathToFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+        @"\NoteApp.notes";
+
         /// <summary>
         /// Конструктор.
         /// </summary>
@@ -47,7 +50,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {            
-            _project = ProjectManager.LoadToFile();            
+            _project = ProjectManager.LoadToFile(_pathToFile);            
             UpdateListNote(_project.Notes);            
         }
 
@@ -159,7 +162,8 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ProjectManager.SaveToFile(_project);
+
+            ProjectManager.SaveToFile(_project,_pathToFile);
         }
 
         /// <summary>

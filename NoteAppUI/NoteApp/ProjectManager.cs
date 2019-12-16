@@ -21,10 +21,10 @@ namespace NoteApp
         /// </summary>
         /// 
         
-        public static void SaveToFile(Project data)
+        public static void SaveToFile(Project data, string path)
         {
             var serializer = new JsonSerializer { Formatting = Formatting.Indented };
-            using (var sw = new StreamWriter(_pathToFile))
+            using (var sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, data);
@@ -34,11 +34,11 @@ namespace NoteApp
         /// <summary>
         /// Загружает проект из файла.
         /// </summary>
-        public static Project LoadToFile()
+        public static Project LoadToFile(string path)
         {
             Project project = new Project();
             var serializer = new JsonSerializer { Formatting = Formatting.Indented };
-            using (var sr = new StreamReader(_pathToFile))
+            using (var sr = new StreamReader(path))
             using (JsonReader reader = new JsonTextReader(sr))
             {
                 project = serializer.Deserialize<Project>(reader);
