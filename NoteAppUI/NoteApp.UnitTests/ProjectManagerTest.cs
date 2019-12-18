@@ -41,12 +41,12 @@ namespace NoteApp.UnitTests
             project.Notes.Add(note1);
             project.Notes.Add(note2);
 
-            string name1 = @"\expected.json";
-            string path = Assembly.GetExecutingAssembly().Location;
-            string ppath = Path.GetDirectoryName(path);
-            string file1 = ppath + name1;
-            string name2 = @"\example.json";
-            string file2 = ppath + name2;
+            string name_expected = @"\example.json";
+            string Location = Assembly.GetExecutingAssembly().Location;
+            string path = Path.GetDirectoryName(Location);
+            string file1 = path + name_expected;
+            string name_example = @"\expected.json";
+            string file2 = path + name_example;
 
             ProjectManager.SaveToFile(project, file2);
 
@@ -60,20 +60,24 @@ namespace NoteApp.UnitTests
         public void TestLoadFromFile_CorrectValue()
         {
             var list = new List<Note>();
-            var note1 = new Note();
-            note1.Name = "Название заметки 1";
-            note1.CategoryNotes = NoteCategory.Work;
-            note1.TextNotes = "Текст заметки 1";
-            note1.CreationTime = new DateTime(2019, 11, 5);
-            note1.LastModifiedTime = new DateTime(2019, 12, 1);
-            list.Add(note1);            
+            var note1 = new Note
+            {
+                Name = "Название заметки 1",
+                CategoryNotes = NoteCategory.Work,
+                TextNotes = "Текст заметки 1",
+                CreationTime = new DateTime(2019, 11, 5),
+                LastModifiedTime = new DateTime(2019, 12, 1)
+            };
+            list.Add(note1);
 
-            var note2 = new Note();
-            note2.Name = "Название заметки 2";
-            note2.CategoryNotes = NoteCategory.Miscellanea;
-            note2.TextNotes = "Текст заметки 2";
-            note2.CreationTime = new DateTime(2019, 12, 2);
-            note2.LastModifiedTime = new DateTime(2019, 12, 2);
+            var note2 = new Note
+            {
+                Name = "Название заметки 2",
+                CategoryNotes = NoteCategory.Miscellanea,
+                TextNotes = "Текст заметки 2",
+                CreationTime = new DateTime(2019, 12, 2),
+                LastModifiedTime = new DateTime(2019, 12, 2)
+            };
             list.Add(note2);
 
             var project = new Project();
@@ -82,9 +86,9 @@ namespace NoteApp.UnitTests
             var actual = project.Notes;
 
             string name = @"\example.json";
-            string path = Assembly.GetExecutingAssembly().Location;
-            string ppath = Path.GetDirectoryName(path);
-            string file = ppath + name;
+            string Location = Assembly.GetExecutingAssembly().Location;
+            string path = Path.GetDirectoryName(Location);
+            string file = path + name;
 
 
             var expected = ProjectManager.LoadToFile(file);

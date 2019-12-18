@@ -38,6 +38,9 @@ namespace NoteApp
         /// </summary>
         private DateTime _lastModifiedTime;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public Note()
         {
             _creationTime = DateTime.Now;

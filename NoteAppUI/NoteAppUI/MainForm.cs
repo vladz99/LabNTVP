@@ -36,9 +36,15 @@ namespace NoteAppUI
         public MainForm()
         {
             InitializeComponent();
-            _project = new Project();
-            var listCategory = Enum.GetValues(typeof (NoteCategory));            
-            CategoryComboBox.DataSource = listCategory;
+            _project = new Project();                        
+            var listCategory = Enum.GetValues(typeof (NoteCategory));
+            CategoryComboBox.Items.Add("All");
+            foreach(var category in listCategory)
+            {
+                CategoryComboBox.Items.Add(category);
+            }
+            //CategoryComboBox.Items.AddRange();
+            //CategoryComboBox.DataSource = listCategory;
             NoteListBox.Items.Clear();
             CategoryComboBox.SelectedIndex = 0;
         }
@@ -51,21 +57,22 @@ namespace NoteAppUI
         private void MainForm_Load(object sender, EventArgs e)
         {            
             _project = ProjectManager.LoadToFile(_pathToFile);            
-            UpdateListNote(_project.Notes);            
+            UpdateListNote();            
         }
 
         /// <summary>
         /// Обновление списка всех заметок
-        /// </summary>
-        /// <param name="notes"></param>
-        private void UpdateListNote(List<Note> notes)
+        /// </summary>        
+        private void UpdateListNote()
         {
             NoteListBox.Items.Clear();
-            foreach(var note in notes)
+
+            _currentCategory = (CategoryComboBox.SelectedIndex == 0) ? _project.Notes
+                 : _project.GetNotesSelectedCategory((NoteCategory)CategoryComboBox.SelectedItem);
+            foreach (var note in _currentCategory)
             {
                 NoteListBox.Items.Add(note.Name);
-            }
-            _currentCategory = notes;
+            }            
         }
         
         /// <summary>
@@ -75,39 +82,18 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {            
-            var selectedNoteCategory = new List<Note>();
-            if (CategoryComboBox.SelectedIndex == 0)
-            {
-                selectedNoteCategory = _project.Notes;
-            }
-            else
-            {
-                foreach (var note in _project.Notes)
-                {
-                    if (note.CategoryNotes == (NoteCategory)CategoryComboBox.SelectedItem)
-                    {
-                        selectedNoteCategory.Add(note);
-                    }
-                }
-            }
-            UpdateListNote(selectedNoteCategory);
+                      
+            UpdateListNote();
         }
         
         /// <summary>
         /// Добавление новой заметки в список.
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param>А
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
-            NoteForm noteForm = new NoteForm();
-            DialogResult result = noteForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                Note newNote = noteForm.CurrentNote;                
-                _project.Notes.Add(newNote);
-                UpdateListNote(_project.Notes);
-            }
+            AddNote();
         }
 
         /// <summary>
@@ -116,6 +102,11 @@ namespace NoteAppUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void EditPictureBox_Click(object sender, EventArgs e)
+        {
+            EditNote();
+        }
+
+        private void EditNote()
         {
             var index = NoteListBox.SelectedIndex;
             if (index >= 0)
@@ -128,8 +119,8 @@ namespace NoteAppUI
                 {
                     Note newNote = noteForm.CurrentNote;
                     _project.Notes.RemoveAt(selectedNoteIndex);
-                    _project.Notes.Insert(selectedNoteIndex, newNote);                    
-                    UpdateListNote(_project.Notes);
+                    _project.Notes.Insert(selectedNoteIndex, newNote);
+                    UpdateListNote();
                 }
             }
         }
@@ -141,18 +132,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void RemovePictureBox_Click(object sender, EventArgs e)
         {
-            var index = NoteListBox.SelectedIndex;
-            if (index >= 0)
-            {
-                var selectedNoteIndex = _project.Notes.IndexOf(_currentCategory[index]);
-                var selectedNote = _project.Notes[selectedNoteIndex];
-                DialogResult result = MessageBox.Show("Do you really want to remove this note: " + selectedNote.Name + " ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    _project.Notes.RemoveAt(selectedNoteIndex);
-                    UpdateListNote(_project.Notes);
-                }
-            }
+            RemoveNote();
         }
 
         /// <summary>
@@ -174,17 +154,18 @@ namespace NoteAppUI
         private void NoteListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var index = NoteListBox.SelectedIndex;
-            if (index >= 0)
+            if (index <= -1)
             {
-                var indexNote = _project.Notes.IndexOf(_currentCategory[index]);
-                Note selectedNote = _project.Notes[indexNote];
-                CurrentNoteLabel.Text = selectedNote.Name;
-                SelectedCategoryLabel.Text = selectedNote.CategoryNotes.ToString();
-                DateCreated.Value = selectedNote.CreationTime;
-                ModifiedDate.Value = selectedNote.LastModifiedTime;
-                RichTextBox.Text = selectedNote.TextNotes;
-
+                return;
             }
+            var indexNote = _project.Notes.IndexOf(_currentCategory[index]);
+            Note selectedNote = _project.Notes[indexNote];
+            CurrentNoteLabel.Text = selectedNote.Name;
+            SelectedCategoryLabel.Text = selectedNote.CategoryNotes.ToString();
+            DateCreated.Value = selectedNote.CreationTime;
+            ModifiedDate.Value = selectedNote.LastModifiedTime;
+            RichTextBox.Text = selectedNote.TextNotes;
+            
         }
 
         /// <summary>
@@ -215,13 +196,19 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            AddNote();
+        }
+     
+        
+        private void AddNote()
+        {
             NoteForm noteForm = new NoteForm();
             DialogResult result = noteForm.ShowDialog();
             if (result == DialogResult.OK)
             {
                 Note newNote = noteForm.CurrentNote;
                 _project.Notes.Add(newNote);
-                UpdateListNote(_project.Notes);
+                UpdateListNote();
             }
         }
         
@@ -232,21 +219,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void EditToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var index = NoteListBox.SelectedIndex;
-            if (index >= 0)
-            {
-                var selectedNoteIndex = _project.Notes.IndexOf(_currentCategory[index]);
-                NoteForm noteForm = new NoteForm();
-                noteForm.CurrentNote = _project.Notes[selectedNoteIndex];
-                DialogResult result = noteForm.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    Note newNote = noteForm.CurrentNote;
-                    _project.Notes.RemoveAt(selectedNoteIndex);
-                    _project.Notes.Insert(selectedNoteIndex, newNote);
-                    UpdateListNote(_project.Notes);
-                }
-            }
+            EditNote();
         }
 
         /// <summary>
@@ -255,6 +228,11 @@ namespace NoteAppUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveNote();
+        }
+        
+        private void RemoveNote()
         {
             var index = NoteListBox.SelectedIndex;
             if (index >= 0)
@@ -265,7 +243,7 @@ namespace NoteAppUI
                 if (result == DialogResult.Yes)
                 {
                     _project.Notes.RemoveAt(selectedNoteIndex);
-                    UpdateListNote(_project.Notes);
+                    UpdateListNote();
                 }
             }
         }

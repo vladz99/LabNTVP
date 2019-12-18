@@ -32,7 +32,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void GitHubLabel_LinkClicked(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/MazurenkoA/ContactsApp");
+            Process.Start("https://github.com/vladz99/LabNTVP");
         }
 
         /// <summary>

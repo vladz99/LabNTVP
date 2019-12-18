@@ -19,7 +19,6 @@ namespace NoteApp
         /// <summary>
         /// Сохраняет проект в файл.
         /// </summary>
-        /// 
         
         public static void SaveToFile(Project data, string path)
         {

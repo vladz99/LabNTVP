@@ -12,7 +12,7 @@ namespace NoteApp
     
     public enum NoteCategory
     {
-        All,
+        //All,
         Work,
         House,
         HealthAndSport,

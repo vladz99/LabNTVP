@@ -32,5 +32,18 @@ namespace NoteApp
         {
             Notes = new List<Note>();
         }
+
+        public List<Note> GetNotesSelectedCategory(NoteCategory selectedCategory)
+        {
+            var selectedNoteCategory = new List<Note>();
+            foreach (var note in Notes)
+            {
+                if (note.CategoryNotes == selectedCategory)
+                {
+                    selectedNoteCategory.Add(note);
+                }
+            }
+            return selectedNoteCategory;
+        }
     }
 }

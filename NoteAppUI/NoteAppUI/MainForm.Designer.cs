@@ -302,7 +302,7 @@
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(100, 10);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(186, 21);
+            this.CategoryComboBox.Size = new System.Drawing.Size(183, 21);
             this.CategoryComboBox.TabIndex = 2;
             this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 

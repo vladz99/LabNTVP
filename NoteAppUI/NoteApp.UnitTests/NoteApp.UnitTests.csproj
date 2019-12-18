@@ -55,12 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NoteTest.cs" />
-    <Compile Include="ProgectTest.cs" />
+    <Compile Include="ProjectTest.cs" />
     <Compile Include="ProjectManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="expected.json" />
+    <None Include="example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="expected.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

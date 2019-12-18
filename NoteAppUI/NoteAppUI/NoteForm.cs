@@ -64,7 +64,7 @@ namespace NoteAppUI
         {
             InitializeComponent();
             CategoryComboBox.DataSource = Enum.GetValues(typeof(NoteCategory));
-            CategoryComboBox.SelectedIndex = 1;
+            CategoryComboBox.SelectedIndex = 0;
             TitleTextBox.Text = _defaultName;
         }
 
@@ -75,11 +75,6 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if (CategoryComboBox.SelectedIndex == 0)
-            {
-                MessageBox.Show("Нельзя выбрать категорию : " + CategoryComboBox.SelectedItem.ToString() + " для создания заметки", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             DialogResult = DialogResult.OK;           
             this.Close();
         }

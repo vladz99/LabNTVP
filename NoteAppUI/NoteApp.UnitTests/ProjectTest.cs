@@ -9,7 +9,7 @@ using NoteApp;
 namespace NoteApp.UnitTests
 {
     [TestFixture]
-    class ProgectTest
+    class ProjectTest
     {
         [Test(Description = "Тест Note: Возвращение списка всех заметок")]
         public void TestNoteGet_CorrectValue()

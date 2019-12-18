@@ -24,12 +24,18 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(expected, actual, "Геттер Name возвращает неправильное название заметки");
         }
 
-
+        /// <summary>
+        /// Проверка допустимой длины в поле название
+        /// </summary>
+        /// <param name="wrongTitle"></param>
+        /// <param name="message"></param>
+       
         [TestCase("111111111111111111111111111111111111111111111111111111111111",
            "Должно возникать исключение, если название заметки больше 50 символов",
            TestName = "Негативный тест сеттера Name: название заметки больше 50 символов")]
         [TestCase("", "Должно возникать исключение, если название заметки равно null",
            TestName = "Негативный тест сеттера Name: название заметки равно null")]
+
         public void TestNameSet_ArgumentExeption(string wrongTitle, string message)
         {
             var note = new Note();
