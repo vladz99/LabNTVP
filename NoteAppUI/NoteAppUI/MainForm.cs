@@ -43,8 +43,6 @@ namespace NoteAppUI
             {
                 CategoryComboBox.Items.Add(category);
             }
-            //CategoryComboBox.Items.AddRange();
-            //CategoryComboBox.DataSource = listCategory;
             NoteListBox.Items.Clear();
             CategoryComboBox.SelectedIndex = 0;
         }
@@ -69,12 +67,14 @@ namespace NoteAppUI
 
             _currentCategory = (CategoryComboBox.SelectedIndex == 0) ? _project.Notes
                  : _project.GetNotesSelectedCategory((NoteCategory)CategoryComboBox.SelectedItem);
+            _currentCategory = _project.SortNotes(_currentCategory);
             foreach (var note in _currentCategory)
             {
                 NoteListBox.Items.Add(note.Name);
             }            
         }
         
+
         /// <summary>
         /// Сортировка заметок по категориям
         /// </summary>
@@ -106,6 +106,9 @@ namespace NoteAppUI
             EditNote();
         }
 
+        /// <summary>
+        /// Редактирование выбранной заметки
+        /// </summary>
         private void EditNote()
         {
             var index = NoteListBox.SelectedIndex;
@@ -199,7 +202,9 @@ namespace NoteAppUI
             AddNote();
         }
      
-        
+        /// <summary>
+        /// Добавление новой заметки
+        /// </summary>
         private void AddNote()
         {
             NoteForm noteForm = new NoteForm();
@@ -232,6 +237,9 @@ namespace NoteAppUI
             RemoveNote();
         }
         
+        /// <summary>
+        /// Удаление заметки
+        /// </summary>
         private void RemoveNote()
         {
             var index = NoteListBox.SelectedIndex;
