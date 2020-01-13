@@ -45,6 +45,7 @@ namespace NoteAppUI
             }
             NoteListBox.Items.Clear();
             CategoryComboBox.SelectedIndex = 0;
+            
         }
 
         /// <summary>
@@ -55,7 +56,10 @@ namespace NoteAppUI
         private void MainForm_Load(object sender, EventArgs e)
         {            
             _project = ProjectManager.LoadToFile(_pathToFile);            
-            UpdateListNote();            
+            UpdateListNote();
+            var indexNote = _project.IndexCurrentNote;            
+            NoteListBox.SelectedIndex = indexNote;
+            
         }
 
         /// <summary>
@@ -71,7 +75,8 @@ namespace NoteAppUI
             foreach (var note in _currentCategory)
             {
                 NoteListBox.Items.Add(note.Name);
-            }            
+            }
+           
         }
         
 
@@ -81,8 +86,7 @@ namespace NoteAppUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-                      
+        {                                  
             UpdateListNote();
         }
         
@@ -145,8 +149,22 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (NoteListBox.SelectedIndex < 0)
+            {
+                NoteListBox.SelectedIndex = 0;
+            }
+            if (_project != null && _project.Notes.Count >= 0)
+            {
+                var currentNote = _currentCategory[NoteListBox.SelectedIndex];
+                var indexNote = _project.Notes.IndexOf(currentNote);                
+                _project.IndexCurrentNote = indexNote;
+            }
+            else
+            {
+                _project.IndexCurrentNote = 0;
+            }            
             ProjectManager.SaveToFile(_project,_pathToFile);
+
         }
 
         /// <summary>

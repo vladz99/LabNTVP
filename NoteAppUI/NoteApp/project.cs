@@ -17,7 +17,14 @@ namespace NoteApp
         /// </summary>
         private List<Note> _notes;
 
-        public int CurrentNote = 0;
+        /// <summary>
+        /// Свойство "Текущая заметка"
+        /// </summary>
+        public int IndexCurrentNote
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Возвращает и задает список всех заметок
@@ -55,6 +62,11 @@ namespace NoteApp
             return sortingList;
         }
 
+        /// <summary>
+        /// Метод получения заметки для выбранной категории
+        /// </summary>
+        /// <param name="selectedCategory"></param>
+        /// <returns></returns>
         public List<Note> GetNotesSelectedCategory(NoteCategory selectedCategory)
         {
             var selectedNoteCategory = new List<Note>();
