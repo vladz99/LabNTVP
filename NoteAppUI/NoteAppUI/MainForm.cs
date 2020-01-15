@@ -56,9 +56,12 @@ namespace NoteAppUI
         private void MainForm_Load(object sender, EventArgs e)
         {            
             _project = ProjectManager.LoadToFile(_pathToFile);            
-            UpdateListNote();
-            var indexNote = _project.IndexCurrentNote;            
-            NoteListBox.SelectedIndex = indexNote;
+            UpdateListNote();                        
+            var indexNote = _project.IndexCurrentNote;
+            if (indexNote >= 0)
+            {
+                NoteListBox.SelectedIndex = indexNote;
+            }
             
         }
 
@@ -149,20 +152,16 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (NoteListBox.SelectedIndex < 0)
-            {
-                NoteListBox.SelectedIndex = 0;
+            var indexNote = -1;
+            if (_project != null && _project.Notes.Count > 0)
+            {                
+                if (NoteListBox.SelectedIndex >= 0)
+                {
+                    indexNote = NoteListBox.SelectedIndex;
+                }
             }
-            if (_project != null && _project.Notes.Count >= 0)
-            {
-                var currentNote = _currentCategory[NoteListBox.SelectedIndex];
-                var indexNote = _project.Notes.IndexOf(currentNote);                
-                _project.IndexCurrentNote = indexNote;
-            }
-            else
-            {
-                _project.IndexCurrentNote = 0;
-            }            
+            _project.IndexCurrentNote = indexNote;
+           
             ProjectManager.SaveToFile(_project,_pathToFile);
 
         }

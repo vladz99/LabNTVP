@@ -4,16 +4,20 @@
 #define MyAppName "NoteApp"
 #define MyAppVersion "1.0.0"
 #define MyAppPublisher "Vlad Zorin"
+#define MyAppURL "https://github.com/vladz99/LabNTVP"
 #define MyAppExeName "NoteAppUI.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{BFCB948B-64E2-467A-993D-0ABE8979568D}
+AppId={{C131F91F-0A23-4A26-95B6-93170ECFFF28}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
+AppPublisherURL={#MyAppURL}
+AppSupportURL={#MyAppURL}
+AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
